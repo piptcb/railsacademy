@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  short_title: MyString
+  duration: 1
+  cost_per_day: 9.99
+  summary: MyText
+  published: false
+
+two:
+  title: MyString
+  short_title: MyString
+  duration: 1
+  cost_per_day: 9.99
+  summary: MyText
+  published: false

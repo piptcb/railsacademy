@@ -1,0 +1,37 @@
+<%= form_for(@course) do |f| %>
+
+  <fieldset>
+    <ol>
+      <li class="required">
+        <%= f.label :title %>
+        <%= f.text_field :title, autofocus: true %>
+      </li>
+      <li class="required">
+        <%= f.label :short_title %>
+        <%= f.text_field :short_title %>
+      </li>
+      <li class="required">
+        <%= f.label :duration %>
+        <%= f.select :duration, Course::DURATION, prompt: "Pick One" %>
+      </li>
+ 
+      <li class="required">
+        <%= f.label :cost_per_day %>
+        <%= f.number_field :cost_per_day %>
+      </li>
+      <li class="required">
+        <%= f.label :summary %>
+        <%= f.text_area :summary, cols:40, rows:7 %>
+      </li>
+     
+      <li>
+        <%= f.label :published, "Published?" %>
+        <%= f.check_box :published %>
+      </li>
+    </ol>
+    <p>
+      <%= f.submit %>
+     
+    </p>
+  </fieldset>
+<% end %>

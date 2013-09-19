@@ -1,0 +1,9 @@
+<h1>Objective</h1>
+
+
+<% @objectives.each do |objective|%>
+		<li> <%= objective.name %></li>
+		<%= link_to "Edit", edit_course_objective_path(@course, objective)%>
+		<%= link_to "Delete", course_objective_path(@course, objective),
+					method: :delete, data: {confirm: 'Are you sure'} %>		
+<% end %>
