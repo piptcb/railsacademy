@@ -1,4 +1,8 @@
 class Category < ActiveRecord::Base
-	has_many :categorisations 
-	has_many :courses, through: :categorisations
+	has_and_belongs_to_many :courses 
+	
+	def has_courses? 
+		courses.count > 0
+	end 
+
 end

@@ -2,7 +2,8 @@
 <h3> <%= link_to "Course Overview" %> </h3>
 <h4>Duration: <%= pluralize(@course.duration, "day")%> </h4>
 <h4>Summary: <%= @course.summary %> </h4>
-
+<h4>Total Course Cost : <%= @course.cost_per_day %> (Includes course materials) </h4>
+      
 <h3><%= link_to "Course Objectives", course_objectives_path(@course) %> </h3>
 
 <ol>

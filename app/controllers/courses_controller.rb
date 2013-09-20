@@ -4,8 +4,10 @@ class CoursesController < ApplicationController
 	end
 
 	def edit
+		#@category = category.find(params[:id])
 		@course = Course.find(params[:id])
 
+		
 	end
 
 	

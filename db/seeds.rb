@@ -5,31 +5,35 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Course.delete_all
+Category.delete_all
+Objective.delete_all
+Textbook.delete_all
+
 Course.create!([
   {
     title: "Building app using rails",
     short_title: "Building app using rails",
-    duration: 9,
+    duration: 8,
     cost_per_day: 100.00 ,
     summary: "learn how to use all the rails feature and components in order to create a cool app"
-   
-    
+      
   },
 
   {
     title: "Building app using objective c ",
     short_title: "Building app using objective c",
-    duration: 9,
+    duration: 7,
     cost_per_day: 100.00 ,
     summary: "learn how to use all the rails feature and components in order to create a cool app"
-    
-    
+        
   },
 
   {
     title: "Building app using cake php",
     short_title: "Building app using cake php",
-    duration: 9,
+    duration: 10,
     cost_per_day: 100.00 ,
     summary: "learn how to use all the rails feature and components in order to create a cool app",
     published: true
@@ -37,8 +41,6 @@ Course.create!([
   }
 
 ])
-
-
 
 
 Objective.create!([
@@ -92,28 +94,54 @@ Category.create!([
 
 ])
 
-Categorisation.create!([
+
+cat1 = Category.first
+cat1.courses.push(Course.first)
+cat1.save
+
+cat1 = Category.first
+cat1.courses.push(Course.last)
+cat1.save
+
+
+cat1 = Category.last
+cat1.courses.push(Course.first)
+cat1.save
+
+Textbook.create!([
 
   {
-    course_id: 1,
-    category_id: 3 
+    title: "Begin ruby on rails"
   },
 
   {
-    course_id: 2,
-    category_id: 3  
+    title: "HTML5 Programming"
   },
 
   {
-    course_id: 3,
-    category_id: 3  
+    title: "Pro Python"
   },
 
   {
-    course_id: 2,
-    category_id: 1  
+    title: "Ruby advance"
+  },
+
+  {
+    title: "Grammer in programming language"
   }
 
 ])
 
 
+cat1 = Course.first
+cat1.textbooks.push(Textbook.first)
+cat1.save
+
+cat1 = Course.first
+cat1.textbooks.push(Textbook.last)
+cat1.save
+
+
+cat1 = Course.last
+cat1.textbooks.push(Textbook.first)
+cat1.save

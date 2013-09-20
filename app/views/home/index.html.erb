@@ -1,0 +1,18 @@
+<h1>Ruby Programming Courses</h1>
+
+<h2>Cambodia's only Ruby / Rails Developers Academy! <h2>
+
+<% @categories.each do |category|%>
+	<% if category.has_courses?%>
+		
+		<p><%= link_to category.name, category_path(@category)  %></p>
+
+		<ul>
+			<%category.courses.each do |course|%>
+				<li><%= link_to course.title, course_path(course) %></li>
+			<%end%>
+		</ul>
+
+	<%end%>
+<%end%>
+
