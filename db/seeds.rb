@@ -76,3 +76,44 @@ Objective.create!([
 ])
 
 
+Category.create!([
+
+  {
+    name: "Rails Programming Courses in Cambodia"
+  },
+
+  {
+    name: "Rails3  Programming Courses in Cambodia"
+  },
+
+  {
+    name: "Rails4 Programming Courses in Cambodia"
+  }
+
+])
+
+Categorisation.create!([
+
+  {
+    course_id: 1,
+    category_id: 3 
+  },
+
+  {
+    course_id: 2,
+    category_id: 3  
+  },
+
+  {
+    course_id: 3,
+    category_id: 3  
+  },
+
+  {
+    course_id: 2,
+    category_id: 1  
+  }
+
+])
+
+
