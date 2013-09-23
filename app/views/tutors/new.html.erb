@@ -1,0 +1,43 @@
+<%= form_for(@tutor) do |f| %>
+
+  <fieldset>
+    <ol>
+      <li class="required">
+        <%= f.label :title %>
+        <%= f.select :title, Tutor::TITLE   %>
+      </li>
+      <li class="required">
+        <%= f.label :firstname %>
+        <%= f.text_field :firstname %>
+      </li>
+
+      <li class="required">
+        <%= f.label :lastname %>
+        <%= f.text_field :lastname %>
+      </li>           
+ 
+      <li class="required">
+        <%= f.label :daily_rate %>
+        <%= f.number_field :daily_rate %>
+      </li>
+
+
+
+      <li class="require">
+          <%= fields_for(@tutor_language) do |language|%>
+            <div>
+                <%= language.label "Language"%>
+                <%= collection_select(:en, :id, @language, :id, :en,
+                  {}, {:multiple => true})%>
+            <div>
+          <%end%>
+      </li>
+             
+          
+    </ol>
+    <p>
+      <%= f.submit "Save" %>
+     
+    </p>
+  </fieldset>
+<% end %>

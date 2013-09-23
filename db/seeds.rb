@@ -10,6 +10,8 @@ Course.delete_all
 Category.delete_all
 Objective.delete_all
 Textbook.delete_all
+Skill.delete_all
+Tutor.delete_all
 
 Course.create!([
   {
@@ -145,3 +147,46 @@ cat1.save
 cat1 = Course.last
 cat1.textbooks.push(Textbook.first)
 cat1.save
+
+
+
+
+
+Skill.create!([ 
+  
+  { 
+    name: "Ruby"
+  },
+
+  {
+    name: "Rails"
+  },
+
+  {
+    name: "PHP"
+  },
+
+  {
+    name: "Javascript"
+  }, 
+
+  {
+    name: "Javascript"
+  },
+
+  {
+    name: "Jquery"
+  }, 
+    
+  {
+    name: "HTML5"
+  }
+
+
+])  
+
+Language.create(en: 'English')
+Language.create(en: 'French')
+Language.create(en: 'Khmer')
+Language.create(en: 'Thai')
+

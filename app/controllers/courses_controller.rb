@@ -4,25 +4,32 @@ class CoursesController < ApplicationController
 	end
 
 	def edit
-		#@category = category.find(params[:id])
 		@course = Course.find(params[:id])
+	    @category = @course.categories 
+	    @category_course = @course.categories.build 
 
-		
+	    @textbook = @course.textbooks
+		@textbook_course = @course.textbooks.build
+		 
 	end
 
-	
 	def update
-		course_params = params.require(:course).permit(:title, :short_title, :duration, :cost_per_day, :summary, :published)
+		
 		@course = Course.find(params[:id])
 		if @course.update(course_params)
-			redirect_to courses_path
+			redirect_to course_path(@course)
 		else 
 			render :edit 
 		end 
 	end
 
 	def new
-		@course = Course.new		
+		@course = Course.new	
+	    @category = Category.all
+	    @category_course = @course.categories.build 
+
+	    @textbook = Textbook.all
+		@textbook_course = @course.textbooks.build	
 	end
 
 	def create
@@ -33,4 +40,12 @@ class CoursesController < ApplicationController
 	def show 
 		@course = Course.find(params[:id])
 	end 
+
+private
+
+def course_params
+
+	course_params = params.require(:course).permit(:title, :short_title, :duration, :cost_per_day, :summary, :published)
+end 
+
 end

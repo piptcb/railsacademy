@@ -1,8 +1,9 @@
 class ObjectivesController < ApplicationController
 
-	before_action :course_param, only: [:index, :destroy, :edit]
+	before_action :course_param, only: [:index, :destroy, :edit, :new]
 	def index
 		@objectives = @course.objectives
+		@objective = Objective.new
 	end
 
 	def destroy
@@ -12,6 +13,26 @@ class ObjectivesController < ApplicationController
 			@objective.destroy
 		end
 		redirect_to course_objectives_path(@course)
+	end 
+
+	def new
+		
+		@objective = Objective.new(params[:objective])
+
+	end
+
+	def create 
+		
+		@objective = Objective.new(params[:objective])
+			if @objective.save 
+				redirect_to :action => 'index'
+			else 
+				render :action => 'index'
+			end 
+	end 
+	
+	def edit 
+
 	end 
 
 	private

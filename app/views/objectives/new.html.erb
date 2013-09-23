@@ -1,0 +1,9 @@
+<%= form_for([@course, @objective]) do |f| %>
+	
+	<%= f.label :name %>
+    <%= f.text_field :name %> 
+    <%= link_to 'Add New',  course_objectives_path(@course), class: 'button',
+    	method: :post %>
+	
+<% end %>
+

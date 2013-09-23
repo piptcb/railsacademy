@@ -1,11 +1,22 @@
 <h1> <%= @course.title %> </h1>
-<h3> <%= link_to "Course Overview" %> </h3>
-<h4>Duration: <%= pluralize(@course.duration, "day")%> </h4>
-<h4>Summary: <%= @course.summary %> </h4>
-<h4>Total Course Cost : <%= @course.cost_per_day %> (Includes course materials) </h4>
-      
-<h3><%= link_to "Course Objectives", course_objectives_path(@course) %> </h3>
 
+<h2> <%= link_to "Course Overview", edit_course_path(@course)  %> </h2>
+<strong> Duration: </strong> <%= pluralize(@course.duration, "day")%> <br>	 
+
+<strong>Textbook: </strong> 
+	<% @course.textbooks.each do |textbook|%>
+		<i><%= link_to textbook.title, "#" %></i>
+	<% end %> <br>
+
+
+<strong>Summary: </strong> <%= @course.summary %><br>
+
+<strong>Total Course Cost </strong> : 
+<%= number_to_currency(@course.cost_per_day)%> (Includes course materials) </h4>
+      
+<h2><%= link_to "Course Objectives", course_objectives_path(@course) %> </h2>
+
+<p>Upon completion of this course the student will gain a sound insight into:</p>
 <ol>
 	<% @course.objectives.each do |objective|%>
 	<li><%= objective.name %></li>

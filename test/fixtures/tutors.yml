@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  firstname: MyString
+  lastname: MyString
+  designatory: MyString
+  daily_rate: 9.99
+  languages: MyString
+  skillset: MyString
+  publish: false
+
+two:
+  title: MyString
+  firstname: MyString
+  lastname: MyString
+  designatory: MyString
+  daily_rate: 9.99
+  languages: MyString
+  skillset: MyString
+  publish: false

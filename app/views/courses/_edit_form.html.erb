@@ -1,0 +1,62 @@
+<%= form_for(@course) do |f| %>
+
+  <fieldset>
+    <ol>
+      <li class="required">
+        <%= f.label :title %>
+        <%= f.text_field :title, autofocus: true %>
+      </li>
+      <li class="required">
+        <%= f.label :short_title %>
+        <%= f.text_field :short_title %>
+      </li>
+
+      <li class="require">
+          <%= fields_for(@category_course) do |cat|%>
+            <div>
+                <%= cat.label "Category"%>
+                <%= collection_select(:name, :id, @category, :id, :name,
+                  {}, {:multiple => true})%>
+            <div>
+          <%end%>
+      </li>
+
+      <li class="required">
+        <%= f.label :duration %>
+        <%= f.select :duration, Course::DURATION, prompt: "Pick One" %>
+      </li>
+  
+ 
+      <li class="required">
+        <%= f.label :cost_per_day %>
+        <%= f.number_field :cost_per_day %>
+      </li>
+      <li class="required">
+        <%= f.label :summary %>
+        <%= f.text_area :summary, cols:40, rows:7 %>
+      </li>
+
+
+        <li class="require">
+          <%= fields_for(@textbook_course) do |cat|%>
+            <div>
+                <%= cat.label "Textbook"%>
+                <%= collection_select(:title, :id, @textbook, :id, :title,
+                  {}, {:multiple => true})%>
+            <div>
+          <%end%>
+      </li>
+      
+     
+    
+      <li>
+        <%= f.label :published, "Published?" %>
+        <%= f.check_box :published %>
+      </li>
+    </ol>
+    <p>
+      <%= f.submit %>
+    <%= link_to "Cancel", course_path(@course), class: 'button' %>
+    </p>
+  </fieldset>
+<% end %>
